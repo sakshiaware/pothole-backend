@@ -1,6 +1,7 @@
-python-multipart
 fastapi
 deta
 pydantic
 opencv-python
 numpy
+werkzeug
+aiofiles
