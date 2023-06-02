@@ -11,7 +11,12 @@ from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 app = FastAPI()
 
 app.add_middleware(
-    HTTPSRedirectMiddleware
+    HTTPSRedirectMiddleware,
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
