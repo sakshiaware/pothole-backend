@@ -83,7 +83,9 @@ async def calculateArea(file: UploadFile = File(...)):
             color = colors[i]
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
             cv2.putText(img, label + " ", (x, y + 20), font, 2, (255, 255, 255), 1)
-            area *= 0.0264583333
+            w=(w*90)/2783
+            h=(h*90)/2996
+            area =w*h
             print(w)
             print(h)
             theRequiredAreas.append(area)
