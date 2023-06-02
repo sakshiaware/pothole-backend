@@ -77,15 +77,13 @@ async def calculateArea(file: UploadFile = File(...)):
         for i in indexes.flatten():
             x, y, w, h = boxs[i]
             print("x " + str(x) + " y " + str(y) + " w " + str(w) + " h " + str(h) + "area " + str(w * h))
-            w=(w*90)/2783
-            h=(h*90)/2996
             area = w * h
             label = str(classes[class_ids[i]])
             confi = str(round(confidences[i], 2))
             color = colors[i]
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
             cv2.putText(img, label + " ", (x, y + 20), font, 2, (255, 255, 255), 1)
-            
+            area *= 0.0264583333
             print(w)
             print(h)
             theRequiredAreas.append(area)
@@ -158,7 +156,9 @@ async def calculateArea(image: StringPayload):
             color = colors[i]
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
             cv2.putText(img, label + " ", (x, y + 20), font, 2, (255, 255, 255), 1)
-            area *= 0.0264583333
+            w=(w*90)/2783
+            h=(h*90)/2996
+            area =w*h
             print(w)
             print(h)
             theRequiredAreas.append(area)
