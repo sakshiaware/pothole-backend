@@ -6,16 +6,18 @@ import werkzeug
 from fastapi.middleware.cors import CORSMiddleware
 import base64
 import aiofiles
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 app = FastAPI()
 
 app.add_middleware(
-    CORSMiddleware,
+    HTTPSRedirectMiddleware,CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/")
 def read_root():
