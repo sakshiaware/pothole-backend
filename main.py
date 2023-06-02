@@ -18,8 +18,8 @@ app.add_middleware(
 )
 
 @app.get("/")
-    def read_root():
-        return {"Hello": "World"}
+def read_root():
+    return {"Hello": "World"}
 
 @app.post("/calculate-area")
 async def calculateArea(file: UploadFile = File(...)):
