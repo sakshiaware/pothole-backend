@@ -17,9 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# @app.get("/")
-# def read_root():
-#     return {"Hello": "World"}
+@app.get("/")
+    def read_root():
+        return {"Hello": "World"}
 
 @app.post("/calculate-area")
 async def calculateArea(file: UploadFile = File(...)):
